@@ -1,0 +1,7 @@
+FROM python:3.13-slim
+WORKDIR /polaris
+COPY backend/requirements.txt backend/requirements.txt
+RUN pip install --no-cache-dir -r backend/requirements.txt
+COPY backend backend
+ENV PYTHONPATH=/polaris/backend DATA_DIR=/polaris/data
+CMD ["python","-m","app.workers.run"]

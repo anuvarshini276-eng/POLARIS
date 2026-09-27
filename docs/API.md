@@ -1,0 +1,3 @@
+# API
+
+Canonical prefix `/api/v1`; Swagger `/swagger`, ReDoc `/redoc`. JSON errors contain detail; request IDs are returned in headers. Lists accept pagination/filter parameters. Auth register/login/refresh/logout/me; documents list/upload/detail/edit/delete/versions/process/moderation/download; search/suggestions; stations/map/features; expeditions/detail; datasets/media; chat/conversations; AI summarize/generate-content/generate-quiz; education/quizzes/attempts; analytics/dashboard/trends; notifications; users; audit-logs; settings; health/database/ai/worker. Authorization is enforced in service queries, including source retrieval and file access.

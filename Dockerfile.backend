@@ -1,0 +1,9 @@
+FROM python:3.13-slim
+WORKDIR /polaris
+COPY backend/requirements.txt backend/requirements.txt
+RUN pip install --no-cache-dir -r backend/requirements.txt
+COPY backend backend
+COPY scripts scripts
+ENV PYTHONPATH=/polaris/backend DATA_DIR=/polaris/data
+WORKDIR /polaris/backend
+CMD ["sh","-c","alembic upgrade head && python ../scripts/seed_database.py && python ../scripts/seed_media.py && uvicorn app.main:app --host 0.0.0.0 --port 8000"]

@@ -1,0 +1,5 @@
+# Database
+
+UUID identifiers, UTC timestamps, indexed foreign keys and uniqueness constraints. Users have constrained roles. Documents have separate visibility, moderation and processing state, structured extracted metadata, versions, tags and authors. Chunks reference document versions and include source page and embeddings. Durable jobs record retries and errors. Refresh sessions store token hashes and expiry. Expeditions, stations, datasets and media hold linked research context. Conversations/messages/citations preserve grounded answers. Generations, quizzes/attempts, events, notifications and append-only audit records support outreach and governance.
+
+SQLAlchemy uses the same models on SQLite (local) and PostgreSQL (deployment). Alembic initializes the schema. SQLite enables foreign keys and WAL. JSON fields contain domain metadata; relation tables model documents/authors/tags and expedition memberships. Vector retrieval applies authorization before scoring; pgvector acceleration is available in PostgreSQL migration.

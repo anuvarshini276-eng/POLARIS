@@ -1,0 +1,39 @@
+# Blueprint path in this repository: POLARIS-source/render.yaml
+# Free web service; persistent database and private files are provided by Supabase Free.
+services:
+  - type: web
+    name: polaris
+    runtime: docker
+    plan: free
+    rootDir: POLARIS-source
+    dockerfilePath: ./Dockerfile.hosted
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DEMO_MODE
+        value: "false"
+      - key: LLM_PROVIDER
+        value: mock
+      - key: EMBEDDING_PROVIDER
+        value: mock
+      - key: DATA_DIR
+        value: /polaris/data
+      - key: DATABASE_URL
+        sync: false
+      - key: STORAGE_PROVIDER
+        value: s3
+      - key: S3_BUCKET
+        value: polaris
+      - key: S3_ENDPOINT
+        sync: false
+      - key: S3_REGION
+        sync: false
+      - key: S3_ACCESS_KEY
+        sync: false
+      - key: S3_SECRET_KEY
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
